@@ -60,16 +60,4 @@ Depois de criar o repositório, você pode adicionar todos os seus arquivos (HTM
     # Ou 'main', dependendo do nome do seu branch principal
     ```
 
-Seu projeto estará agora no GitHub, e a descrição do `README.md` será a primeira coisa que as pessoas verão!
 
----
-**Dica Extra: GitHub Pages**
-
-Para que outras pessoas possam ver e interagir com seu projeto como um site em funcionamento (e não apenas código), você pode ativá-lo com o **GitHub Pages**.
-
-1.  No seu repositório, vá em **"Settings"** (Configurações).
-2.  Clique em **"Pages"** no menu lateral.
-3.  Em "Source" (Fonte), selecione o *branch* principal (`main` ou `master`).
-4.  Clique em **"Save"** (Salvar).
-
-O GitHub fornecerá um link (geralmente `seu_usuario.github.io/nome_do_repositorio`) onde a sua página estará online.
