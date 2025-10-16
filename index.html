@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Você é vascaino?</title>
+</head>
+<body>
+    <div>
+    <img class="vascoescudo" src="VascoLogos-fotor-bg-remover-20251006222037.png" alt="logovasco">
+    </div>
+   <div class="enquadrados">
+    <img class="LogoPequena" src="79322661_10162899418010454_7873062493977837568_n (1).png" alt="escudovascopequeno">
+    <h1>Você torce para o Gigantesco Vasco da Gama?</h1>
+    <div class="botoes">
+    <button class="button-74" onclick="torcedor('sim')">Sim, eu torço para o Gigante da Colina</button>
+    <button class="button-74" onclick="torcedor('nao')">Não, tô dando mole né chefe</button>
+    </div>
+    <div class="confete-container"></div>
+    <div id="mensagem"></div>
+</div>
+
+
+<div 
+id="mensagem">
+</div>
+
+
+<script>
+   const audioSim = new Audio('hino-do-vasco-versão-funk-(estourado)-made-with-Voicemod.mp3');
+const audioNao = new Audio('vaias.mp3');
+const caixa = document.querySelector('.enquadrados');
+const fundoOriginal = window.getComputedStyle(caixa).backgroundImage;
+
+let intervaloConfete;
+let intervaloFundo; // substitui intervaloPisca
+
+let imagensFundo = [
+    '20211104-002500-1-.jpg',
+    '20201108-095554-1-.png',
+    'Imagens Do Vasco.jpg'
+];
+let indiceImagem = 0;
+
+function torcedor(resposta) {
+    const caixa = document.querySelector('.enquadrados');
+    const mensagemDiv = document.getElementById('mensagem');
+    const botoes = document.querySelector('.botoes');
+    const confeteContainer = document.querySelector('.confete-container');
+   const escudos = document.querySelectorAll('.vascoescudo, .LogoPequena');
+
+if (resposta === 'sim') {
+    escudos.forEach(escudo => escudo.classList.add('pulsar'));
+} else {
+    escudos.forEach(escudo => escudo.classList.remove('pulsar'));
+}
+
+
+    audioSim.pause();
+    audioSim.currentTime = 0;
+    audioNao.pause();
+    audioNao.currentTime = 0;
+
+    mensagemDiv.innerHTML = "";
+    botoes.classList.remove('animar');
+    void botoes.offsetWidth;
+    botoes.classList.add('animar');
+
+    confeteContainer.innerHTML = "";
+    clearInterval(intervaloConfete);
+    clearInterval(intervaloFundo);
+
+    if (resposta === 'sim') {
+        audioSim.play();
+
+        // confetes
+        intervaloConfete = setInterval(() => {
+            const confete = document.createElement('div');
+            confete.classList.add('confete');
+            confete.style.left = Math.random() * confeteContainer.offsetWidth + 'px';
+            confete.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+            confeteContainer.appendChild(confete);
+            confete.addEventListener('animationend', () => confete.remove());
+        }, 200);
+
+        // slideshow de imagens
+        caixa.style.backgroundImage = `url('${imagensFundo[0]}')`;
+        indiceImagem = 0;
+        intervaloFundo = setInterval(() => {
+            indiceImagem = (indiceImagem + 1) % imagensFundo.length;
+            caixa.style.backgroundImage = `url('${imagensFundo[indiceImagem]}')`;
+        }, 600);
+
+        audioSim.onended = function() {
+    clearInterval(intervaloConfete);
+    clearInterval(intervaloFundo);
+    escudos.forEach(escudo => escudo.classList.remove('pulsar'));
+
+    // Restaurar fundo original
+    caixa.style.backgroundImage = fundoOriginal;
+
+    mensagemDiv.innerHTML = "É nós vascão, tmj meu rlk!!";
+    mensagemDiv.style.color = "#FFD700"; 
+    mensagemDiv.style.textShadow = "2px 2px 8px black, 0 0 10px red";
+    mensagemDiv.style.fontSize = "28px";
+};
+    } else {
+        audioNao.play();
+        audioNao.onended = function() {
+            mensagemDiv.innerHTML = "Tá vacilando, parceiro! 😅";
+            mensagemDiv.style.color = "red";
+            mensagemDiv.style.fontSize = "24px";
+        };
+    }
+}
+
+</script>
+
+
+
+
+
+
+    
+</body>
+</html>

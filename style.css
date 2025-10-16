@@ -1,0 +1,188 @@
+body {
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(penalty_vasco_18.png);
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+.vascoescudo {
+    width: 600px;              
+    filter: drop-shadow(0 0 10px white) drop-shadow(0 0 5px rgb(0, 0, 0));
+    top: 10px;
+}
+
+.vascoescudo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgb(0, 0, 0)) drop-shadow(0 0 10px rgb(255, 255, 255));
+}
+
+h1 {
+    color: rgb(0, 0, 0);                  
+    -webkit-text-stroke: 1px rgb(255, 255, 255); 
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.LogoPequena {
+    width: 150px;
+    top: 2px;
+    filter: drop-shadow(0 0 10px white) drop-shadow(0 0 5px rgb(0, 0, 0));
+
+}
+
+
+.enquadrados {
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.796); 
+    padding: 60px 80px;                  
+    border-radius: 15px;                  
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                rgba(0, 0, 0, 0.09) 0px -3px 5px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.enquadrados h1 {
+    margin-bottom: 20px;
+}
+
+.button-74 {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 30px;
+  box-shadow: #484848 4px 4px 0 0;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: 0.5s;
+}
+
+.button-74:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.button-74:active {
+  box-shadow: #ff0000 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+
+.botoes {
+  display: flex;
+  gap: 30px;          
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.animar button {
+    transition: 0.2s;
+}
+
+#mensagem {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+}
+
+
+.confete-container {
+    position: relative; 
+    width: 100%;
+    height: 50px;        
+    overflow: hidden;     
+    pointer-events: none; 
+}
+
+.confete {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: 0;              
+    opacity: 1;
+    animation: cair 2s linear forwards; 
+}
+
+@keyframes cair {
+    to {
+        transform: translateY(200px) rotate(360deg); 
+        opacity: 0;                                  
+    }
+}
+
+    h1 {color: #ffffffa2;}
+
+    @keyframes pulsar {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* aumenta 10% */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulsar {
+    animation: pulsar 1s infinite;
+}
+
+.vascoescudo:hover, .LogoPequena:hover {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 0 20px gold) drop-shadow(0 0 10px white);
+    transition: 0.3s;
+}
+
+
